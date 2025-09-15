@@ -1,0 +1,17 @@
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+body {background: linear-gradient(135deg, #1e3c72, #2a5298); color:#fff; display:flex; justify-content:center; align-items:center; min-height:100vh;}
+.container {width:90%; max-width:600px; text-align:center;}
+header h1 {font-size:2rem; font-weight:600;}
+header p {font-size:1rem; margin-bottom:20px; color:#ddd;}
+form {display:flex; gap:10px; justify-content:center; margin-bottom:20px;}
+form input {flex:1; padding:10px; border:none; border-radius:8px; font-size:1rem;}
+form button {padding:10px 15px; border:none; border-radius:8px; background:#ff9800; color:#fff; font-size:1rem; cursor:pointer; transition: background 0.3s;}
+form button:hover {background:#e68900;}
+.card {background: rgba(255,255,255,0.1); padding:20px; border-radius:12px; box-shadow:0px 4px 15px rgba(0,0,0,0.2); margin-top:10px;}
+.card h2 {margin-bottom:10px; font-size:1.5rem;}
+.temp {font-size:2.5rem; font-weight:600; margin:10px 0;}
+.error {background: rgba(255,0,0,0.2); border:1px solid #ff4d4d;}
+.forecast-title {margin-top:30px; font-size:1.4rem; font-weight:600;}
+.forecast-container {display:grid; grid-template-columns:repeat(auto-fit, minmax(120px,1fr)); gap:15px; margin-top:15px;}
+.forecast-card {background: rgba(255,255,255,0.15); padding:15px; border-radius:10px; box-shadow:0px 4px 12px rgba(0,0,0,0.2);}
+.forecast-card .date {font-size:0.9rem; font-weight:600; margin-bottom:8px;}

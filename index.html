@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>India Weather Forecast</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🇮🇳 India Weather Forecast</h1>
+      <p>Real-time weather updates for Indian cities</p>
+    </header>
+
+    <form method="POST">
+      <input type="text" name="city" placeholder="Enter Indian city (e.g., Mumbai, Delhi)" required>
+      <button type="submit">Get Weather</button>
+    </form>
+
+    {% if weather %}
+      {% if weather.error %}
+        <div class="card error"><p>{{ weather.error }}</p></div>
+      {% else %}
+        <div class="card">
+          <h2>{{ weather.name }}, India</h2>
+          <p class="temp">{{ weather.main.temp }}°C</p>
+          <p>{{ weather.weather[0].description | title }}</p>
+          <p>Humidity: {{ weather.main.humidity }}%</p>
+          <p>Wind: {{ weather.wind.speed }} m/s</p>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {% if forecast %}
+      <h2 class="forecast-title">5-Day Forecast</h2>
+      <div class="forecast-container">
+        {% for day in forecast %}
+          <div class="forecast-card">
+            <p class="date">{{ day.dt_txt.split(" ")[0] }}</p>
+            <p class="temp">{{ day.main.temp }}°C</p>
+            <p>{{ day.weather[0].description | title }}</p>
+            <p>Humidity: {{ day.main.humidity }}%</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
